@@ -183,12 +183,17 @@ var selectRestaurantPage = function() {
   updateSKVendorsCache();
   $("ul.Restaurants li a").click(function(){
     var $a = $(this);
-    storage.get("order", function(items) {
+    storage.get(["order", "sk_vendors"], function(items) {
+      var name = $a.text();
       items.order = items.order || {};
       items.vendor = {
-        "name": $a.text(),
+        "name": name,
         "seamless_id": $a.uri().query(true).vendorLocationId,
       };
+      if(name in items.sk_vendors) {
+        items.vendor.id = items.sk_vendors[name];
+      }
+      delete items.sk_vendors;
       var datestr = $a.parent().parent().prevAll('#opens').last().text();
       var date = moment();
       $.each(weekdayMatch, function(key, value) {
@@ -197,7 +202,6 @@ var selectRestaurantPage = function() {
         }
       })
       items.order.for_date = date.format("YYYY-MM-DD");
-      // get vendor ID
       storage.set(items);
     })
   })
