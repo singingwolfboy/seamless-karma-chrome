@@ -3,6 +3,9 @@
   "name": "Seamless Karma",
   "version": "0.0.1",
   "description": "Track and manage your corporate allocations on Seamless.com",
+  "icons": {
+    "128": "icon128.png"
+  },
   "author": "David Baumgold <david@davidbaumgold.com>",
   "homepage_url": "http://www.seamlesskarma.com",
   "content_scripts": [{
