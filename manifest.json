@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Seamless Karma",
+  "version": "0.0.1",
+  "description": "Track and manage your corporate allocations on Seamless.com",
+  "author": "David Baumgold <david@davidbaumgold.com>",
+  "homepage_url": "http://www.seamlesskarma.com",
+  "content_scripts": [{
+    "matches": [
+      "http://www.seamless.com/*",
+      "https://www.seamless.com/*"
+    ],
+    "js": ["jquery.min.js", "URI.min.js", "moment.min.js", "jquery.cookie.js",
+           "karma.js"]
+  }],
+  "permissions": [
+    "http://www.seamlesskarma.com/",
+    "https://www.seamlesskarma.com/",
+    "storage"
+  ]
+}
