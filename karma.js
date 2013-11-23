@@ -180,6 +180,7 @@ var weekdayMatch = {
 }
 
 var selectRestaurantPage = function() {
+  updateSKVendorsCache();
   $("ul.Restaurants li a").click(function(){
     var $a = $(this);
     storage.get("order", function(items) {
